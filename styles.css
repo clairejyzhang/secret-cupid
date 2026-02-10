@@ -31,3 +31,42 @@ button {
 .error {
     color: red;
 }
+
+/* emoji confetti */
+
+#emoji-confetti-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none; /* don't block clicks */
+    overflow: hidden;
+    z-index: 9999;
+  }
+  
+  .emoji-confetti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    animation: emoji-fall var(--dur) ease-out forwards;
+    font-size: var(--size);
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  }
+  
+  @keyframes emoji-fall {
+    0% {
+      opacity: 0;
+      transform: translate3d(var(--x), var(--y), 0) rotate(0deg) scale(0.9);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy)), 0)
+        rotate(var(--rot)) scale(1.1);
+    }
+  }
