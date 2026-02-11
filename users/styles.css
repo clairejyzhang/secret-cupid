@@ -80,3 +80,17 @@ body {
     }
   }
   
+
+@media screen and (max-width: 600px) {
+  body {
+    height: auto;
+    padding-top: 10%;
+  }
+
+    .container {
+      width: 80%;
+    }
+    .heading-container {
+      width: 80%;
+    }
+}
